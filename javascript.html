@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript — Rana</title>
+
+  <link href="./src/output.css" rel="stylesheet">
+
+  <style>
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-5 max-w-5xl mx-auto">
+    <a href="index.html" class="text-xl font-bold text-purple-400">
+      NA.
+    </a>
+
+    <div class="flex gap-5 text-sm">
+      <a href="index.html" class="text-gray-400 hover:text-purple-400">
+        Portfolio
+      </a>
+
+      <a href="javascript.html" class="text-purple-400">
+        JavaScript
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- JavaScript Project -->
+  <main class="max-w-5xl mx-auto px-6 py-20">
+
+    <div class="text-center mb-12">
+      <p class="text-purple-400 text-sm">
+        JAVASCRIPT TASK
+      </p>
+
+      <h1 class="text-4xl md:text-5xl font-bold mt-3">
+        Kalkulator Nilai Akhir
+      </h1>
+
+      <p class="text-gray-400 mt-4 max-w-xl mx-auto">
+        Program sederhana untuk menghitung nilai akhir berdasarkan
+        nilai Tugas, UTS, dan UAS.
+      </p>
+    </div>
+
+
+    <!-- Calculator -->
+    <div class="max-w-md mx-auto bg-gray-950 border border-purple-800
+                rounded-3xl p-6 md:p-8">
+
+      <div class="mb-5">
+        <label class="text-sm text-gray-400">
+          Nilai Tugas
+        </label>
+
+        <input
+          id="tugas"
+          type="number"
+          min="0"
+          max="100"
+          placeholder="0 - 100"
+          class="w-full mt-2 p-3 rounded-xl bg-black
+                 border border-gray-700 outline-none
+                 focus:border-purple-500">
+      </div>
+
+
+      <div class="mb-5">
+        <label class="text-sm text-gray-400">
+          Nilai UTS
+        </label>
+
+        <input
+          id="uts"
+          type="number"
+          min="0"
+          max="100"
+          placeholder="0 - 100"
+          class="w-full mt-2 p-3 rounded-xl bg-black
+                 border border-gray-700 outline-none
+                 focus:border-purple-500">
+      </div>
+
+
+      <div class="mb-5">
+        <label class="text-sm text-gray-400">
+          Nilai UAS
+        </label>
+
+        <input
+          id="uas"
+          type="number"
+          min="0"
+          max="100"
+          placeholder="0 - 100"
+          class="w-full mt-2 p-3 rounded-xl bg-black
+                 border border-gray-700 outline-none
+                 focus:border-purple-500">
+      </div>
+
+
+      <button
+        onclick="hitungNilai()"
+        class="w-full p-3 rounded-xl bg-purple-600
+               hover:bg-purple-700 font-semibold">
+        Hitung Nilai
+      </button>
+
+
+      <!-- Result -->
+      <div
+        id="result"
+        class="text-center mt-6 text-purple-400 font-bold">
+      </div>
+
+    </div>
+
+
+    <!-- Weight Information -->
+    <div class="max-w-md mx-auto mt-8 grid grid-cols-3 gap-3">
+
+      <div class="border border-gray-800 rounded-xl p-4 text-center">
+        <p class="text-purple-400 font-bold">40%</p>
+        <p class="text-gray-500 text-xs mt-1">Tugas</p>
+      </div>
+
+      <div class="border border-gray-800 rounded-xl p-4 text-center">
+        <p class="text-purple-400 font-bold">30%</p>
+        <p class="text-gray-500 text-xs mt-1">UTS</p>
+      </div>
+
+      <div class="border border-gray-800 rounded-xl p-4 text-center">
+        <p class="text-purple-400 font-bold">30%</p>
+        <p class="text-gray-500 text-xs mt-1">UAS</p>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="text-center border-t border-gray-800 py-6
+                 text-gray-500 text-sm">
+    © 2026 Rana Atikah Mawarni
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script>
+    function hitungNilai() {
+
+      const tugas = parseFloat(document.getElementById("tugas").value);
+      const uts = parseFloat(document.getElementById("uts").value);
+      const uas = parseFloat(document.getElementById("uas").value);
+
+      const result = document.getElementById("result");
+
+
+      if (isNaN(tugas) || isNaN(uts) || isNaN(uas)) {
+        result.textContent = "Masukkan semua nilai terlebih dahulu.";
+        return;
+      }
+
+
+      if (
+        tugas < 0 || tugas > 100 ||
+        uts < 0 || uts > 100 ||
+        uas < 0 || uas > 100
+      ) {
+        result.textContent = "Nilai harus berada di antara 0 - 100.";
+        return;
+      }
+
+
+      const nilaiAkhir =
+        (tugas * 0.40) +
+        (uts * 0.30) +
+        (uas * 0.30);
+
+
+      result.textContent =
+        "Nilai Akhir: " + nilaiAkhir.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
