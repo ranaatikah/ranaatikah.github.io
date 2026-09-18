@@ -9,37 +9,55 @@
 
   <link href="./src/output.css" rel="stylesheet">
 
-  <style>
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+ <style>
 
-    input[type="number"] {
-      -moz-appearance: textfield;
-    }
-  </style>
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+</style>
+
 </head>
+
 
 <body class="bg-black text-white min-h-screen">
 
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-5 max-w-5xl mx-auto">
 
-    <a href="index.html" class="text-xl font-bold text-purple-400">
+  <!-- Navbar -->
+  <nav
+    class="flex justify-between items-center px-6 py-5 max-w-5xl mx-auto">
+
+    <a
+      href="index.html"
+      class="text-xl font-bold text-purple-400">
+
       NA.
+
     </a>
 
-    <a href="index.html" class="text-gray-400 hover:text-purple-400">
+
+    <a
+      href="index.html"
+      class="text-gray-400 hover:text-purple-400">
+
       Portfolio
+
     </a>
 
   </nav>
 
 
-  <!-- Kalkulator Jarak -->
-  <main class="max-w-5xl mx-auto px-6 py-20">
+  <!-- Kalkulator -->
+  <main
+    class="max-w-5xl mx-auto px-6 py-20">
 
     <div class="max-w-md mx-auto">
 
@@ -59,9 +77,14 @@
       <!-- Kecepatan -->
       <div class="mt-8">
 
-        <label class="text-sm text-gray-400">
+        <label
+          for="kecepatan"
+          class="text-sm text-gray-400">
+
           Kecepatan (km/jam)
+
         </label>
+
 
         <input
           id="kecepatan"
@@ -81,9 +104,14 @@
       <!-- Jam -->
       <div class="mt-5">
 
-        <label class="text-sm text-gray-400">
+        <label
+          for="jam"
+          class="text-sm text-gray-400">
+
           Waktu (jam)
+
         </label>
+
 
         <input
           id="jam"
@@ -103,9 +131,14 @@
       <!-- Menit -->
       <div class="mt-5">
 
-        <label class="text-sm text-gray-400">
+        <label
+          for="menit"
+          class="text-sm text-gray-400">
+
           Waktu (menit)
+
         </label>
+
 
         <input
           id="menit"
@@ -128,7 +161,9 @@
         onclick="hitungJarak()"
         class="w-full mt-6 p-3 rounded-xl bg-purple-600
                hover:bg-purple-700 font-semibold">
+
         Hitung Jarak
+
       </button>
 
 
@@ -144,8 +179,9 @@
 
 
   <!-- Footer -->
-  <footer class="text-center border-t border-gray-800 py-6
-                 text-gray-500 text-sm">
+  <footer
+    class="text-center border-t border-gray-800 py-6
+           text-gray-500 text-sm">
 
     © 2026 Rana Atikah Mawarni
 
@@ -167,7 +203,9 @@
         event.key === "ArrowUp" ||
         event.key === "ArrowDown"
       ) {
+
         event.preventDefault();
+
       }
 
     }
@@ -176,19 +214,30 @@
     function hitungJarak() {
 
       const kecepatan =
-        parseFloat(document.getElementById("kecepatan").value);
+        parseFloat(
+          document.getElementById("kecepatan").value
+        );
+
 
       const jamInput =
         document.getElementById("jam").value;
 
+
       const menitInput =
         document.getElementById("menit").value;
 
+
       const jam =
-        jamInput === "" ? 0 : parseFloat(jamInput);
+        jamInput === ""
+          ? 0
+          : parseFloat(jamInput);
+
 
       const menit =
-        menitInput === "" ? 0 : parseFloat(menitInput);
+        menitInput === ""
+          ? 0
+          : parseFloat(menitInput);
+
 
       const hasil =
         document.getElementById("hasil");
@@ -200,6 +249,7 @@
           "Masukkan kecepatan terlebih dahulu.";
 
         return;
+
       }
 
 
@@ -209,6 +259,7 @@
           "Kecepatan tidak boleh negatif.";
 
         return;
+
       }
 
 
@@ -218,6 +269,7 @@
           "Masukkan waktu terlebih dahulu.";
 
         return;
+
       }
 
 
@@ -227,11 +279,13 @@
           "Menit harus berada di antara 0 - 59.";
 
         return;
+
       }
 
 
       const waktu =
         jam + (menit / 60);
+
 
       const jarak =
         kecepatan * waktu;
@@ -243,6 +297,7 @@
     }
 
   </script>
+
 
 </body>
 
